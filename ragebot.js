@@ -58,7 +58,7 @@ client.on('message', msg => {
     }
 
     var unique;
-    var poss = [];
+    var poss = "Possibilities: "
 
 
     for(let i = 0; i < items.length-1; i++) {
@@ -70,35 +70,18 @@ client.on('message', msg => {
           .then((json) => {
             msg.channel.send("Price " + name + ": " + json[0].sell_price_min);
           });
-          //poss = [];
+          poss = [];
           //return;
           break;
         } else if (items[i].LocalizedNames["EN-US"].toLowerCase().indexOf(name.toLowerCase()) !== -1) {
-            poss.push(items[i].UniqueName);
+            poss = poss + items[i].UniqueName + "\n";
           }
         }
       }
-    msg.channel.send("Possibilities:");
-    poss.forEach(p => msg.channel.send(p));
+    if(poss.length() > 17) {
+      poss.forEach(p => msg.channel.send(p));
+    }
 
-    /*
-    var url = "https://www.albion-online-data.com/api/v2/stats/prices/T4_BAG@3?locations=FortSterling&qualities=2";
-    fetch(url, settings)
-    .then(res => res.json())
-    .then((json) => {
-      msg.channel.send('Price: ' + json[0].sell_price_min);
-    */
     break;
   }
 });
-
-
-/* OLD TEST
-function getJson(url) {
-	 fetch(url, settings)
-        .then(res => res.json())
-        .then((json) => {
-		console.log("JSON: " + json[0]);
-		return json;
-    });
-}*/
