@@ -12,7 +12,7 @@ let settings = {method: "Get"};
 //} catch {
 	//error
 //}
-	
+
 client.login(config.token);
 
 client.on('ready', () => {
@@ -20,21 +20,32 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-  if (msg.content === 'ping') {
-    msg.reply('Pong!');
-  } 
-  if (msg.content === 'get') {
-	fetch(url, settings)
-	.then(res => res.json())
-	.then((json) => {
-		msg.reply('Price: ' + json[0].sell_price_min);
-    });
-	  
-	 // msg.reply('Price: ' +  getJson(url)[0].sell_price_min);
-  }
-});
+  //dont answer our own messages
+  if (message.author.bot) return;
+  //Checking for prefix
+  if (message.content.indexOf(config.prefix) !== 0) return;
+  //get input data
+  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+  const command = args.shift().toLowerCase();
 
-/*function getJson(url) {
+  //react to commands
+  switch (command) {
+    case("ping") :
+      msg.reply('Pong!');
+      break;
+    case("gettest") :
+      fetch(url, settings)
+      .then(res => res.json())
+      .then((json) => {
+        msg.channel.send('Price: ' + json[0].sell_price_min);
+      });
+      break;
+  }
+}
+
+
+/* OLD TEST
+function getJson(url) {
 	 fetch(url, settings)
         .then(res => res.json())
         .then((json) => {
