@@ -57,11 +57,17 @@ client.on('message', msg => {
     //var quality = args[2];
     for(let i = 0; i < items.length; i++) {
       //error in here
-      for(var name in i.LocalizedNames){
+      if (i.LocalizedNames.EN-US.toLowerCase().indexOf(city.toLowerCase()) !== -1) {
+        console.log(name + ": " + i.LocalizationNameVariable);
+      }
+
+      /*for(var name in i.LocalizedNames){
         if (name.toLowerCase().indexOf(city.toLowerCase()) !== -1) {
           console.log(name + ": " + i.LocalizationNameVariable);
         }
-      }
+      }*/
+
+
     }/*
     var url = "https://www.albion-online-data.com/api/v2/stats/prices/T4_BAG@3?locations=FortSterling&qualities=2";
     fetch(url, settings)
