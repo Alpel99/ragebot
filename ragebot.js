@@ -72,7 +72,7 @@ client.on('message', msg => {
               json.sort(function(a, b) {
                 return a.sell_price_min - b.sell_price_min;
               });
-            msg.channel.send("Price " + json[0].LocalizedNames["EN-US"] + ": " + json[0].sell_price_min + " in " + json[0].city);
+            msg.channel.send("Price " + name + ": " + json[0].sell_price_min + " in " + json[0].city);
           });
           poss = [];
           //return;
