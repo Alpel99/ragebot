@@ -79,10 +79,7 @@ client.on('message', msg => {
         }
       }
     msg.channel.send("Possibilities:");
-    forEach((poss, p) => {
-      msg.channel.send(p);
-    });
-
+    poss.forEach(p => msg.channel.send(p));
 
     /*
     var url = "https://www.albion-online-data.com/api/v2/stats/prices/T4_BAG@3?locations=FortSterling&qualities=2";
