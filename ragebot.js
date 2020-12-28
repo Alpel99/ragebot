@@ -79,7 +79,7 @@ client.on('message', msg => {
         }
       }
     if(poss.length > 17) {
-      msg.channel.send(p));
+      msg.channel.send(poss);
     }
 
     break;
