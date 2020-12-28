@@ -70,6 +70,9 @@ client.on('message', msg => {
           .then(res => res.json())
           .then((json) => {
             json.sort(sortPrice(a, b));
+              json.sort(function(a, b {
+                return a.sell_price_min - b.sell_price_min;
+              });
             msg.channel.send("Price " + name + ": " + json[0].sell_price_min);
           });
           poss = [];
@@ -87,7 +90,3 @@ client.on('message', msg => {
     break;
   }
 });
-
-sortPrice(a, b) {
-  return a.sell_price_min + b.sell_price_min;
-}
