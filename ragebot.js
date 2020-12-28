@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const config = require('./config.json');
-//const fs = require('fs');
+const fs = require('fs');
 const fetch = require('node-fetch');
 
 let settings = {method: "Get"};
