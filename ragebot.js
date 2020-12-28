@@ -78,8 +78,8 @@ client.on('message', msg => {
           }
         }
       }
-    if(poss.length() > 17) {
-      poss.forEach(p => msg.channel.send(p));
+    if(poss.length > 17) {
+      msg.channel.send(p));
     }
 
     break;
