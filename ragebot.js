@@ -45,7 +45,6 @@ client.on('message', msg => {
         msg.channel.send('Price: ' + json[0].sell_price_min);
       });
       break;
-  }
   case("get") :
     var city = args[0];
     //var item = agrs[1];
@@ -64,6 +63,7 @@ client.on('message', msg => {
       msg.channel.send('Price: ' + json[0].sell_price_min);
     });*/
     break;
+  }
 }
 });
 
