@@ -47,7 +47,7 @@ client.on('message', msg => {
       fetch(url, settings)
       .then(res => res.json())
       .then((json) => {
-        msg.channel.send('Price: ' + json[0].sell_price_min);
+        msg.channel.send("Price: " + json[0].sell_price_min + " in " + json[0].city);
       });
       break;
   case("get") :
@@ -64,10 +64,12 @@ client.on('message', msg => {
     for(let i = 0; i < items.length-1; i++) {
       if(items[i].LocalizedNames) {
         if(items[i].UniqueName === name) {
-          var url = "https://www.albion-online-data.com/api/v2/stats/prices/" + name + "?locations=FortSterling&qualities=0";
+          //var url = "https://www.albion-online-data.com/api/v2/stats/prices/" + name + "?locations=FortSterling&qualities=0";
+          var url = "https://www.albion-online-data.com/api/v2/stats/prices/" + name;
           fetch(url, settings)
           .then(res => res.json())
           .then((json) => {
+            json.sort(sortPrice(a, b));
             msg.channel.send("Price " + name + ": " + json[0].sell_price_min);
           });
           poss = [];
@@ -85,3 +87,7 @@ client.on('message', msg => {
     break;
   }
 });
+
+sortPrice(a, b) {
+  return a.sell_price_min + b.sell_price_min;
+}
