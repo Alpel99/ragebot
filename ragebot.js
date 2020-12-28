@@ -21,11 +21,11 @@ client.on('ready', () => {
 
 client.on('message', msg => {
   //dont answer our own messages
-  if (message.author.bot) return;
+  if (msg.author.bot) return;
   //Checking for prefix
-  if (message.content.indexOf(config.prefix) !== 0) return;
+  if (msg.content.indexOf(config.prefix) !== 0) return;
   //get input data
-  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+  const args = msg.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 
   //react to commands
