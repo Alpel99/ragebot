@@ -58,8 +58,10 @@ client.on('message', msg => {
     for(let i = 0; i < items.length-1; i++) {
       //error in here
       //.LocalizedNames["EN-US"]
-      if (items[i].LocalizedNames["EN-US"].toLowerCase().indexOf(city.toLowerCase()) !== -1) {
-        msg.channel.send("name " + i + ": " + items[i].LocalizationNameVariable);
+      if(items[i].LocalizedNames) {
+        if (items[i].LocalizedNames["EN-US"].toLowerCase().indexOf(city.toLowerCase()) !== -1) {
+          msg.channel.send("name " + i + ": " + items[i].LocalizationNameVariable);
+        }
       }
 
       /*for(var name in i.LocalizedNames){
