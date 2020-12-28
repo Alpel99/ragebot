@@ -57,7 +57,7 @@ client.on('message', msg => {
     //var quality = args[2];
     for(let i = 0; i < items.length; i++) {
       //error in here
-      if (i.LocalizedNames.EN-US.toLowerCase().indexOf(city.toLowerCase()) !== -1) {
+      if (i.LocalizedNames["EN-US"].toLowerCase().indexOf(city.toLowerCase()) !== -1) {
         console.log(name + ": " + i.LocalizationNameVariable);
       }
 
