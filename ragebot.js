@@ -70,14 +70,14 @@ client.on('message', msg => {
           .then((json) => {
             msg.channel.send("Price " + name + ": " + json[0].sell_price_min);
           });
-          poss = [];
-          return;
+          //poss = [];
+          //return;
+          break;
         } else if (items[i].LocalizedNames["EN-US"].toLowerCase().indexOf(city.toLowerCase()) !== -1) {
             poss.add(items[i].UniqueName);
           }
         }
       }
-    }
     msg.channel.send("Possibilities:");
     forEach((poss, p) => {
       msg.channel.send(p);
