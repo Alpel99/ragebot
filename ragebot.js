@@ -52,11 +52,12 @@ client.on('message', msg => {
       break;
   case("get") :
     var city = args[0];
-    console.log(city);
+    console.log(items[0]);
     //var item = agrs[1];
     //var quality = args[2];
-    for(let i = 0; i < items.length; i++) {
+    for(let i = 0; i < items.length-1; i++) {
       //error in here
+      //.LocalizedNames["EN-US"]
       if (items[i].LocalizedNames["EN-US"].toLowerCase().indexOf(city.toLowerCase()) !== -1) {
         msg.channel.send("name " + i + ": " + items[i].LocalizationNameVariable);
       }
