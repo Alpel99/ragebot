@@ -58,7 +58,7 @@ client.on('message', msg => {
     for(let i = 0; i < items.length; i++) {
       //error in here
       if (items[i].LocalizedNames["EN-US"].toLowerCase().indexOf(city.toLowerCase()) !== -1) {
-        console.log(name + ": " + items[i].LocalizationNameVariable);
+        msg.channel.send("name " + i + ": " + items[i].LocalizationNameVariable);
       }
 
       /*for(var name in i.LocalizedNames){
