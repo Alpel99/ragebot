@@ -41,7 +41,7 @@ client.on('message', msg => {
       });
       break;
   }
-}
+});
 
 
 /* OLD TEST
