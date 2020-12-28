@@ -51,33 +51,45 @@ client.on('message', msg => {
       });
       break;
   case("get") :
-    var city = args[0];
-    console.log(items[0]);
-    //var item = agrs[1];
-    //var quality = args[2];
+    if(args[0]) {
+      var name = args[0];
+    } else {
+      msg.channel.send("Please enter item name");
+    }
+
+    var unique;
+    var poss = [];
+
+
     for(let i = 0; i < items.length-1; i++) {
-      //error in here
-      //.LocalizedNames["EN-US"]
       if(items[i].LocalizedNames) {
-        if (items[i].LocalizedNames["EN-US"].toLowerCase().indexOf(city.toLowerCase()) !== -1) {
-          msg.channel.send("name " + i + ": " + items[i].LocalizationNameVariable);
+        if(items[i].UniqueName === name) {
+          var url = "https://www.albion-online-data.com/api/v2/stats/prices/" + name + ?locations=FortSterling&qualities=0";
+          fetch(url, settings)
+          .then(res => res.json())
+          .then((json) => {
+            msg.channel.send("Price " + name + ": " + json[0].sell_price_min);
+          });
+          break;
+        } else if (items[i].LocalizedNames["EN-US"].toLowerCase().indexOf(city.toLowerCase()) !== -1) {
+            poss.add(items[i].UniqueName);
+          }
         }
       }
+    }
+    msg.channel.send("Possibilities:");
+    forEach((poss, p) => {
+      msg.channel.send(p);
+    });
 
-      /*for(var name in i.LocalizedNames){
-        if (name.toLowerCase().indexOf(city.toLowerCase()) !== -1) {
-          console.log(name + ": " + i.LocalizationNameVariable);
-        }
-      }*/
 
-
-    }/*
+    /*
     var url = "https://www.albion-online-data.com/api/v2/stats/prices/T4_BAG@3?locations=FortSterling&qualities=2";
     fetch(url, settings)
     .then(res => res.json())
     .then((json) => {
       msg.channel.send('Price: ' + json[0].sell_price_min);
-    });*/
+    */
     break;
   }
 });
