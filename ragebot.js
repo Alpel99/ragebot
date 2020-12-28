@@ -73,7 +73,7 @@ client.on('message', msg => {
           //poss = [];
           //return;
           break;
-        } else if (items[i].LocalizedNames["EN-US"].toLowerCase().indexOf(city.toLowerCase()) !== -1) {
+        } else if (items[i].LocalizedNames["EN-US"].toLowerCase().indexOf(name.toLowerCase()) !== -1) {
             poss.add(items[i].UniqueName);
           }
         }
