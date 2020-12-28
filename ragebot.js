@@ -11,7 +11,7 @@ function readItemData() {
   fs.readFile('items.json', (err, data) => {
       if (err) throw err;
       items = JSON.parse(data);
-      console.log("Read in " + items.length + " items.")
+      //console.log("Read in " + items.length + " items.")
   });
 }
 
@@ -64,7 +64,7 @@ client.on('message', msg => {
     for(let i = 0; i < items.length-1; i++) {
       if(items[i].LocalizedNames) {
         if(items[i].UniqueName === name) {
-          var url = "https://www.albion-online-data.com/api/v2/stats/prices/" + name + ?locations=FortSterling&qualities=0";
+          var url = "https://www.albion-online-data.com/api/v2/stats/prices/" + name + "?locations=FortSterling&qualities=0";
           fetch(url, settings)
           .then(res => res.json())
           .then((json) => {
