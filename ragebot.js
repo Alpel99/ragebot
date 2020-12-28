@@ -74,7 +74,7 @@ client.on('message', msg => {
           //return;
           break;
         } else if (items[i].LocalizedNames["EN-US"].toLowerCase().indexOf(name.toLowerCase()) !== -1) {
-            poss.add(items[i].UniqueName);
+            poss.push(items[i].UniqueName);
           }
         }
       }
