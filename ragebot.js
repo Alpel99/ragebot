@@ -5,11 +5,15 @@ const fs = require('fs');
 const fetch = require('node-fetch');
 
 let settings = {method: "Get"};
+let items;
 
-fs.readFile('items.json', (err, data) => {
-    if (err) throw err;
-    let items = JSON.parse(data);
-});
+function readItemData() {
+  fs.readFile('items.json', (err, data) => {
+      if (err) throw err;
+      items = JSON.parse(data);
+      console.log("Read in " + items.length + " items.")
+  });
+}
 
 //try {
 //	var token = fs.readFileSync('token.txt', 'utf8');
@@ -21,6 +25,7 @@ client.login(config.token);
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
+  readItemData();
 });
 
 client.on('message', msg => {
