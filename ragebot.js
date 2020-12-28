@@ -1,18 +1,19 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const fs = require('fs');
+const config = require('./config.json');
+//const fs = require('fs');
 const fetch = require('node-fetch');
 
 let url = "https://www.albion-online-data.com/api/v2/stats/prices/T4_BAG@3?locations=FortSterling&qualities=2";
 let settings = {method: "Get"};
 
-try {
-	var token = fs.readFileSync('token.txt', 'utf8');
-} catch {
+//try {
+//	var token = fs.readFileSync('token.txt', 'utf8');
+//} catch {
 	//error
-}
+//}
 	
-client.login(token.toString().replace(/(\r\n|\n|\r)/gm, ""));//.catch(console.log);
+client.login(config.token);
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
