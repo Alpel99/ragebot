@@ -1,0 +1,16 @@
+{
+  "name": "disordbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ragebot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "node-fetch": "^2.6.1",
+    "npm": "^7.3.0"
+  }
+}
