@@ -56,8 +56,9 @@ client.on('message', msg => {
     //var item = agrs[1];
     //var quality = args[2];
     for(let i = 0; i < items.length; i++) {
-      for(var names in i.LocalizedNames){
-        if (names.toLowerCase().indexOf(city.toLowerCase()) !== -1) {
+      //error in here
+      for(var name in i.LocalizedNames){
+        if (name.toLowerCase().indexOf(city.toLowerCase()) !== -1) {
           console.log(name + ": " + i.LocalizationNameVariable);
         }
       }
