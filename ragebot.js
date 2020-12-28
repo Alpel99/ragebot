@@ -65,14 +65,14 @@ client.on('message', msg => {
       if(items[i].LocalizedNames) {
         if(items[i].UniqueName === name) {
           //var url = "https://www.albion-online-data.com/api/v2/stats/prices/" + name + "?locations=FortSterling&qualities=0";
-          var url = "https://www.albion-online-data.com/api/v2/stats/prices/" + name;
+          var url = "https://www.albion-online-data.com/api/v2/stats/prices/" + name + "?locations=FortSterling,Lymhurst,Bridgewatch,Martlock,Thetford,Carleon";
           fetch(url, settings)
           .then(res => res.json())
           .then((json) => {
               json.sort(function(a, b) {
                 return a.sell_price_min - b.sell_price_min;
               });
-            msg.channel.send("Price " + name + ": " + json[0].sell_price_min);
+            msg.channel.send("Price " + json[0].LocalizedNames["EN-US"] + ": " + json[0].sell_price_min + " in " + json[0].city);
           });
           poss = [];
           //return;
