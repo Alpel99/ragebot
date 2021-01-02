@@ -83,8 +83,10 @@ client.on('message', msg => {
         } else if (items[i].LocalizedNames["EN-US"].toLowerCase().indexOf(name.toLowerCase()) !== -1) {
             if(poss[msgcounter].length > 1850) {
               msgcounter++;
+              poss[msgcounter] = items[i].UniqueName + "\n";
+            } else {
+              poss[msgcounter] = poss[msgcounter] + items[i].UniqueName + "\n";
             }
-            poss[msgcounter] = poss[msgcounter] + items[i].UniqueName + "\n";
           }
         }
       }
