@@ -77,7 +77,7 @@ client.on('message', msg => {
 
             msg.channel.send("Price " + name + ": " + json[0].sell_price_min + " in " + json[0].city);
           });
-          poss = "";
+          poss = [];
           //return;
           break;
         } else if (items[i].LocalizedNames["EN-US"].toLowerCase().indexOf(name.toLowerCase()) !== -1) {
@@ -91,9 +91,9 @@ client.on('message', msg => {
         }
       }
 
-    if(poss[0].length > 17) {
+    if(poss[0].length > 15) {
       for(let i = 0; i <= msgcounter; i++) {
-    	  msg.channel.send(poss[msgcounter]);
+    	  msg.channel.send(poss[i]);
       }
     }
 
