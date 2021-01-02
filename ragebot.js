@@ -57,7 +57,7 @@ client.on('message', msg => {
       msg.channel.send("Please enter item name");
     }
 
-    var msgcounter = 0;
+    var msgctr = 0;
     var poss = ["Possibilities: "];
 
     for(let i = 0; i < items.length-1; i++) {
@@ -77,22 +77,21 @@ client.on('message', msg => {
 
             msg.channel.send("Price " + name + ": " + json[0].sell_price_min + " in " + json[0].city);
           });
-          poss = [];
-          //return;
+          msgctr = -1;
           break;
         } else if (items[i].LocalizedNames["EN-US"].toLowerCase().indexOf(name.toLowerCase()) !== -1) {
-            if(poss[msgcounter].length > 1850) {
-              msgcounter++;
-              poss[msgcounter] = items[i].UniqueName + "\n";
+            if(poss[msgctr].length > 1850) {
+              msgctr++;
+              poss[msgctr] = items[i].UniqueName + "\n";
             } else {
-              poss[msgcounter] = poss[msgcounter] + items[i].UniqueName + "\n";
+              poss[msgctr] += items[i].UniqueName + "\n";
             }
           }
         }
       }
 
     if(poss[0].length > 15) {
-      for(let i = 0; i <= msgcounter; i++) {
+      for(let i = 0; i <= msgctr; i++) {
     	  msg.channel.send(poss[i]);
       }
     }
