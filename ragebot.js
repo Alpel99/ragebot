@@ -58,8 +58,7 @@ client.on('message', msg => {
     }
 
     var msgcounter = 0;
-    var poss[msgcounter] = "Possibilities: "
-
+    var poss = ["Possibilities: "];
 
     for(let i = 0; i < items.length-1; i++) {
       if(items[i].LocalizedNames) {
