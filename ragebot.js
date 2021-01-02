@@ -78,7 +78,7 @@ client.on('message', msg => {
               
             msg.channel.send("Price " + name + ": " + json[0].sell_price_min + " in " + json[0].city);
           });
-          poss = [];
+          poss = "";
           //return;
           break;
         } else if (items[i].LocalizedNames["EN-US"].toLowerCase().indexOf(name.toLowerCase()) !== -1) {
